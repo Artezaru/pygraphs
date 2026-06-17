@@ -31,7 +31,7 @@ jobs:
 
     - name: Build documentation
       run: |
-        # sphinx-autogen -o docs/source/_autosummary/ docs/source/_docs/*.rst
+        sphinx-autogen docs/source/*.rst
         sphinx-build -v -b html docs/source/ public/
 
     - name: Deploy to GitHub Pages
