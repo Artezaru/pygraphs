@@ -1,0 +1,442 @@
+{
+ "Graph.from_adjacency": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph.from_adjacency"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph.from_adjacency"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.Graph",
+   "module_short": "pygraphs.Graph",
+   "name": "from_adjacency"
+  }
+ ],
+ "adjacency_matrix": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "bfs_components": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_components"
+  }
+ ],
+ "bfs_distances": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_distances"
+  }
+ ],
+ "bfs_is_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_is_reachable"
+  }
+ ],
+ "bfs_k_annulus": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_k_annulus"
+  }
+ ],
+ "bfs_matrix": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_matrix"
+  }
+ ],
+ "bfs_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_reachable"
+  }
+ ],
+ "bfs_shortest_distance": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_shortest_distance"
+  }
+ ],
+ "bfs_shortest_path": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_shortest_path"
+  }
+ ],
+ "components": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "directed_graph": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  }
+ ],
+ "directed_graph.is_directed": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph.is_directed"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph.is_directed"
+  }
+ ],
+ "distance": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "int"
+  }
+ ],
+ "distances": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "end_vertex": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "int"
+  }
+ ],
+ "graph": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "inner_distance": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "int"
+  }
+ ],
+ "is_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "bool"
+  }
+ ],
+ "max_distance": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "NoneType"
+  }
+ ],
+ "neighborhood": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "outer_distance": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "int"
+  }
+ ],
+ "pygraphs.Graph": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  }
+ ],
+ "pygraphs.bfs_components": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_components"
+  }
+ ],
+ "pygraphs.bfs_distances": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_distances"
+  }
+ ],
+ "pygraphs.bfs_is_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_is_reachable"
+  }
+ ],
+ "pygraphs.bfs_k_annulus": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_k_annulus"
+  }
+ ],
+ "pygraphs.bfs_k_disk": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_k_disk"
+  }
+ ],
+ "pygraphs.bfs_k_ring": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_k_ring"
+  }
+ ],
+ "pygraphs.bfs_matrix": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_matrix"
+  }
+ ],
+ "pygraphs.bfs_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_reachable"
+  }
+ ],
+ "pygraphs.bfs_shortest_distance": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_shortest_distance"
+  }
+ ],
+ "pygraphs.bfs_shortest_path": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "bfs_shortest_path"
+  }
+ ],
+ "reachable_vertices": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "shortest_path": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "start_vertex": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "int"
+  }
+ ],
+ "undirected_graph": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  }
+ ],
+ "undirected_graph.is_directed": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph.is_directed"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph.is_directed"
+  }
+ ]
+}

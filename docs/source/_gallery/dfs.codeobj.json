@@ -1,0 +1,227 @@
+{
+ "Graph.from_adjacency": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph.from_adjacency"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph.from_adjacency"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.Graph",
+   "module_short": "pygraphs.Graph",
+   "name": "from_adjacency"
+  }
+ ],
+ "components": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "dfs_components": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "dfs_components"
+  }
+ ],
+ "dfs_is_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "dfs_is_reachable"
+  }
+ ],
+ "dfs_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "dfs_reachable"
+  }
+ ],
+ "directed_graph": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  }
+ ],
+ "directed_graph.is_directed": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph.is_directed"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph.is_directed"
+  }
+ ],
+ "end_vertex": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "int"
+  }
+ ],
+ "graph": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "is_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "bool"
+  }
+ ],
+ "pygraphs.Graph": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  }
+ ],
+ "pygraphs.dfs_components": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "dfs_components"
+  }
+ ],
+ "pygraphs.dfs_is_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "dfs_is_reachable"
+  }
+ ],
+ "pygraphs.dfs_reachable": [
+  {
+   "is_class": false,
+   "is_explicit": true,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "dfs_reachable"
+  }
+ ],
+ "reachable_vertices": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "list"
+  }
+ ],
+ "start_vertex": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "int"
+  }
+ ],
+ "undirected_graph": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph"
+  }
+ ],
+ "undirected_graph.is_directed": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs.graph",
+   "module_short": "pygraphs",
+   "name": "Graph.is_directed"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pygraphs",
+   "module_short": "pygraphs",
+   "name": "Graph.is_directed"
+  }
+ ]
+}

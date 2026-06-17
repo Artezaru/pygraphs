@@ -1,0 +1,47 @@
+[build-system]
+requires = [
+  "setuptools>=42",
+  "setuptools-scm>=8.0"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygraphs"
+requires-python = ">= 3.11"
+dynamic = ["version"]
+description = "Python graphs library to perform BFS, DFS, Dijkstra, and more."
+license = {file = "LICENSE"}
+authors = [
+{name = "Artezaru", email = "artezaru.github@proton.me"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Artezaru/pygraphs"
+Documentation = "https://Artezaru.github.io/pygraphs"
+Source = "https://github.com/Artezaru/pygraphs"
+Tracker = "https://github.com/Artezaru/pygraphs/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pygraphs", "pygraphs*"]
+exclude = ["laboratory", "laboratory.*", "tests", "tests*", "examples", "examples*"]
+
+[tool.setuptools.package-data]
+"pygraphs.resources" = ["*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "pygraphs.__version__.__version__"}
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+
+
+
