@@ -1,0 +1,1551 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pygraphs.dijkstra &#8212; pygraphs 0.0.4 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+    <script src="../../_static/documentation_options.js?v=8c5712d9"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pygraphs/dijkstra';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pygraphs 0.0.4 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../usage.html">
+    Gallery Examples
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../usage.html">
+    Gallery Examples
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pygraphs.dijkstra</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pygraphs.dijkstra</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">pygraphs - Python graphs library to perform Dijkstra, DFS, Dijkstra, and more.</span>
+<span class="sd">Copyright (C) 2026 Artezaru, artezaru.github@proton.me</span>
+
+<span class="sd">This program is free software: you can redistribute it and/or modify</span>
+<span class="sd">it under the terms of the GNU General Public License as published by</span>
+<span class="sd">the Free Software Foundation, either version 3 of the License, or</span>
+<span class="sd">(at your option) any later version.</span>
+
+<span class="sd">This program is distributed in the hope that it will be useful,</span>
+<span class="sd">but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="sd">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="sd">GNU General Public License for more details.</span>
+
+<span class="sd">You should have received a copy of the GNU General Public License</span>
+<span class="sd">along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Integral</span><span class="p">,</span> <span class="n">Real</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">heapq</span><span class="w"> </span><span class="kn">import</span> <span class="n">heappush</span><span class="p">,</span> <span class="n">heappop</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.exeptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">assert_valid_graph_weights</span>
+
+
+<div class="viewcode-block" id="dijkstra">
+<a class="viewcode-back" href="../../docs/_generated/pygraphs.dijkstra.html#pygraphs.dijkstra">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dijkstra</span><span class="p">(</span>
+    <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span>
+    <span class="n">start</span><span class="p">:</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">max_distance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Real</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">weight_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">_skip_check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    [core function] Perform a Dijkstra algorithm to compute the shortest path distances from</span>
+<span class="sd">    a starting vertex to all other vertices in a **weighted** graph, and to keep track</span>
+<span class="sd">    of the parent vertices for each visited vertex.</span>
+
+<span class="sd">    .. warning::</span>
+
+<span class="sd">        No tests are performed to check if the input graph is valid (e.g., if the graph</span>
+<span class="sd">        contains self-loops, if the graph contains invalid vertex indices, ...).</span>
+<span class="sd">        The behavior of the function is undefined if the input graph is not valid.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graph: Graph</span>
+<span class="sd">        An instance of the Graph class representing the graph to be traversed.</span>
+
+<span class="sd">    start: Integral</span>
+<span class="sd">        The starting vertex index.</span>
+
+<span class="sd">    max_distance : Optional[Real], optional (default: ``None``)</span>
+<span class="sd">        The maximum distance to search. All vertices</span>
+<span class="sd">        that are not reachable within this distance will be ignored.</span>
+
+<span class="sd">    weight_key: str (default: ``&#39;weight&#39;``)</span>
+<span class="sd">        The key-name of the weight to use in the graph dictionnary structure.</span>
+<span class="sd">        If an edge does not have weight, default weight is ``1.0``.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    parents: Dict[int, int]</span>
+<span class="sd">        A dictionary mapping each visited vertex index to its parent vertex index in the Dijkstra tree.</span>
+<span class="sd">        The starting vertex will have a parent of None.</span>
+
+<span class="sd">    distances: Dict[int, float]</span>
+<span class="sd">        A dictionary mapping each visited vertex index to its shortest path distance from the</span>
+<span class="sd">        starting vertex. The starting vertex will have a distance of 0.</span>
+
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The function uses a Dijkstra approach to compute the shortest path distances, which is</span>
+<span class="sd">    efficient for weighted graphs. The time complexity is :math:`O((V + E)\log V`, where :math:`V`</span>
+<span class="sd">    is the number of vertices and :math:`E` is the number of edges in the graph.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create a simple disconnected graph of 7 vertices and compute the shortest path</span>
+<span class="sd">    distances from a starting vertex (0) to all other vertices in the graph.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Disconnected and weighted graph with 7 vertices for Dijkstra example.</span>
+<span class="sd">        Distance from vertex 0 to vertex 4 is 4.8.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(0, 0.2), (1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 3.2), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            [(5, 2.3)]</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 0</span>
+
+<span class="sd">        parent, distance = dijkstra(graph, start_vertex)</span>
+<span class="sd">        print(&quot;Parent:&quot;, parent)</span>
+<span class="sd">        print(&quot;Distance:&quot;, distance)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        Parent: {0: None, 1: 0, 2: 0, 3: 2, 4: 3}</span>
+<span class="sd">        Distance: {0: 0, 1: 1.2, 2: 0.2, 3: 3.4, 4: 4.8}</span>
+
+<span class="sd">    This method can be applied for **directed** graphs as well,</span>
+<span class="sd">    where the adjacency list represents the outgoing neighbors of each vertex.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph_directed.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Directed graph with 7 vertices for Dijkstra example. Distance from vertex 2 to</span>
+<span class="sd">        vertex 0 is 2.7.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 1.4), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            []</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 2</span>
+
+<span class="sd">        parent, distance = dijkstra(graph, start_vertex)</span>
+<span class="sd">        print(&quot;Parent:&quot;, parent)</span>
+<span class="sd">        print(&quot;Distance:&quot;, distance)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        Parent: {2: None, 1: 2, 3: 2, 0: 1, 4: 3}</span>
+<span class="sd">        Distance: {2: 0.0, 1: 1.5, 3: 3.2, 0: 2.7, 4: 4.6}</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_skip_check</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">Graph</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;graph must be an instance of Graph. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">Integral</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;start must be an integer. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">start</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">start</span> <span class="o">&gt;=</span> <span class="n">graph</span><span class="o">.</span><span class="n">n_vertices</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;start must be an integer between 0 and n_vertices-1. Got </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">max_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">max_distance</span><span class="p">,</span> <span class="n">Real</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;max_distance must be an real or None. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">max_distance</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">max_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">max_distance</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;max_distance must be a non-negative float or None.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; Got </span><span class="si">{</span><span class="n">max_distance</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">max_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">max_distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_distance</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">weight_key</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;weight_key must be a string. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">weight_key</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># -- Dijkstra initialization --</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">_graph</span>  <span class="c1"># Dict[int, Dict[int, Dict[str, Any]]]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_skip_check</span><span class="p">:</span>
+        <span class="n">assert_valid_graph_weights</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">,</span> <span class="n">weight_key</span><span class="o">=</span><span class="n">weight_key</span><span class="p">)</span>
+
+    <span class="n">distances</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">start</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+    <span class="n">parents</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="n">start</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+    <span class="n">heap</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">start</span><span class="p">)]</span>  <span class="c1"># (distance, node)</span>
+
+    <span class="c1"># -- Dijkstra loop --</span>
+    <span class="k">while</span> <span class="n">heap</span><span class="p">:</span>
+        <span class="n">dist_u</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
+
+        <span class="c1"># Skip outdated entries</span>
+        <span class="k">if</span> <span class="n">dist_u</span> <span class="o">!=</span> <span class="n">distances</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)):</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Optional pruning</span>
+        <span class="k">if</span> <span class="n">max_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">dist_u</span> <span class="o">&gt;</span> <span class="n">max_distance</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">attrs</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">weight</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">weight_key</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">new_dist</span> <span class="o">=</span> <span class="n">dist_u</span> <span class="o">+</span> <span class="n">weight</span>
+
+            <span class="k">if</span> <span class="n">max_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">new_dist</span> <span class="o">&gt;</span> <span class="n">max_distance</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">distances</span> <span class="ow">or</span> <span class="n">new_dist</span> <span class="o">&lt;</span> <span class="n">distances</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
+                <span class="n">distances</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_dist</span>
+                <span class="n">parents</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span>
+                <span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="p">(</span><span class="n">new_dist</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">parents</span><span class="p">,</span> <span class="n">distances</span></div>
+
+
+
+<div class="viewcode-block" id="dijkstra_distances">
+<a class="viewcode-back" href="../../docs/_generated/pygraphs.dijkstra_distances.html#pygraphs.dijkstra_distances">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dijkstra_distances</span><span class="p">(</span>
+    <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span>
+    <span class="n">start</span><span class="p">:</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">max_distance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Real</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">weight_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">_skip_check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute shortest path distances from a source vertex to **all** reachable vertices</span>
+<span class="sd">    using Dijkstra.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graph: Graph</span>
+<span class="sd">        An instance of the Graph class representing the graph to be traversed.</span>
+
+<span class="sd">    start: Integral</span>
+<span class="sd">        The starting vertex index for the Dijkstra.</span>
+
+<span class="sd">    max_distance : Optional[Real], optional (default: ``None``)</span>
+<span class="sd">        The maximum distance to search for in the Dijkstra. All vertices</span>
+<span class="sd">        that are not reachable within this distance will be ignored.</span>
+
+<span class="sd">    weight_key: str (default: ``&#39;weight&#39;``)</span>
+<span class="sd">        The key-name of the weight to use in the graph dictionnary structure.</span>
+<span class="sd">        If an edge does not have weight, default weight is ``1.0``.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    List[float]</span>
+<span class="sd">        A list of float representing the shortest path distances from the starting</span>
+<span class="sd">        vertex to all other vertices in the graph.</span>
+<span class="sd">        The length of the output list is equal to the number of vertices in the graph.</span>
+<span class="sd">        Unreachable vertices have distance of ``-1.0``.</span>
+
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :func:`pygraphs.dijkstra`</span>
+<span class="sd">        Core implementation of Dijkstra.</span>
+
+<span class="sd">    :func:`pygraphs.dijkstra_matrix`</span>
+<span class="sd">        Compute the shortest path distance matrix for all pairs of vertices in the graph</span>
+<span class="sd">        using Dijkstra.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create a simple disconnected graph of 7 vertices and compute the shortest path</span>
+<span class="sd">    distances from a starting vertex (0) to all other vertices in the graph.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Disconnected and weighted graph with 7 vertices for Dijkstra example.</span>
+<span class="sd">        Distance from vertex 0 to vertex 4 is 4.8.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_distances, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(0, 0.2), (1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 3.2), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            [(5, 2.3)]</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 0</span>
+
+<span class="sd">        distances = dijkstra_distances(graph, start_vertex)</span>
+<span class="sd">        print(distances)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        [0.0, 1.2, 0.2, 3.4, 4.8, -1.0, -1.0]</span>
+
+<span class="sd">    This method can be applied for **directed** graphs as well,</span>
+<span class="sd">    where the adjacency list represents the outgoing neighbors of each vertex.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph_directed.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Directed graph with 7 vertices for Dijkstra example. Distance from vertex 2 to</span>
+<span class="sd">        vertex 0 is 2.7.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_distances, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 1.4), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            []</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 2</span>
+
+<span class="sd">        distances = dijkstra_distances(graph, start_vertex)</span>
+<span class="sd">        print(distances)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        [2.7, 1.5, 0.0, 3.2, 4.6, -1.0, -1.0]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">distance_dict</span> <span class="o">=</span> <span class="n">dijkstra</span><span class="p">(</span>
+        <span class="n">graph</span><span class="p">,</span>
+        <span class="n">start</span><span class="p">,</span>
+        <span class="n">max_distance</span><span class="o">=</span><span class="n">max_distance</span><span class="p">,</span>
+        <span class="n">weight_key</span><span class="o">=</span><span class="n">weight_key</span><span class="p">,</span>
+        <span class="n">_skip_check</span><span class="o">=</span><span class="n">_skip_check</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">n_vertices</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">n_vertices</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">distance_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_vertices</span><span class="p">)]</span></div>
+
+
+
+<div class="viewcode-block" id="dijkstra_k_annulus">
+<a class="viewcode-back" href="../../docs/_generated/pygraphs.dijkstra_k_annulus.html#pygraphs.dijkstra_k_annulus">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dijkstra_k_annulus</span><span class="p">(</span>
+    <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span>
+    <span class="n">start</span><span class="p">:</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="n">inner_distance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Real</span><span class="p">],</span>
+    <span class="n">outer_distance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Real</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">weight_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">_skip_check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return all vertices with distance in :math:`[k_1, k_2]`</span>
+<span class="sd">    (ie :math:`\{v \in V | \text{dist}(i, v) \in [k_1, k_2]\}`) where :math:`k_1` and</span>
+<span class="sd">    :math:`k_2` are the specified inner and outer distances.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graph : Graph</span>
+<span class="sd">        An instance of the Graph class representing the graph to be traversed.</span>
+
+<span class="sd">    start : Integral</span>
+<span class="sd">        The starting vertex index for the Dijkstra.</span>
+
+<span class="sd">    inner_distance : Optional[Real]</span>
+<span class="sd">        The minimum distance :math:`k_1` for the neighborhood of the starting vertex,</span>
+<span class="sd">        where the neighborhood includes all vertices that are at least this distance from the vertex.</span>
+<span class="sd">        If None, there is no minimum distance and all vertices that are at</span>
+<span class="sd">        least 0 distance from the vertex are included.</span>
+
+<span class="sd">    outer_distance : Optional[Real]</span>
+<span class="sd">        The maximum distance :math:`k_2` for the neighborhood of the starting vertex,</span>
+<span class="sd">        where the neighborhood includes all vertices that are at most this distance from the vertex.</span>
+<span class="sd">        If None, there is no maximum distance and all vertices that are reachable</span>
+<span class="sd">        from the starting vertex are included.</span>
+
+<span class="sd">    weight_key: str (default: ``&#39;weight&#39;``)</span>
+<span class="sd">        The key-name of the weight to use in the graph dictionnary structure.</span>
+<span class="sd">        If an edge does not have weight, default weight is ``1.0``.</span>
+
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    List[int]</span>
+<span class="sd">        A list of vertex indices representing the vertices in the adjacency annulus</span>
+<span class="sd">        of the starting vertex in the graph (i.e., the set of vertices that are between</span>
+<span class="sd">        inner_distance and outer_distance from the starting vertex).</span>
+
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :func:`pygraphs.dijkstra`</span>
+<span class="sd">        Core implementation of Dijkstra.</span>
+
+<span class="sd">    :func:`pygraphs.dijkstra_k_disk`</span>
+<span class="sd">        Call this function with ``inner_distance = 0`` and ``outer_distance = k`` to extract the</span>
+<span class="sd">        vertices in a adjacency disk of a starting vertex in the graph.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create a simple disconnected graph of 7 vertices and extract the vertices within</span>
+<span class="sd">    distance range.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Disconnected and weighted graph with 7 vertices for Dijkstra example.</span>
+<span class="sd">        Vertices 1, 2 and 3 are the only vertices in the neighborhood of vertex</span>
+<span class="sd">        0 for inner_distance = 0.1 and outer_distance = 4.0.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_annulus, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(0, 0.2), (1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 3.2), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            [(5, 2.3)]</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 0</span>
+<span class="sd">        inner_distance = 0.1</span>
+<span class="sd">        outer_distance = 4.0</span>
+
+<span class="sd">        neighborhood = dijkstra_k_annulus(graph, start_vertex, inner_distance, outer_distance)</span>
+<span class="sd">        print(neighborhood)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        [1, 2, 3]</span>
+
+<span class="sd">    This method can be applied for **directed** graphs as well,</span>
+<span class="sd">    where the adjacency list represents the outgoing neighbors of each vertex.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph_directed.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Directed graph with 7 vertices for Dijkstra example. Vertices 1 and 3 are the only</span>
+<span class="sd">        vertices in the neighborhood of vertex 2 for inner_distance = 1.0 and outer_distance = 3.5.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_annulus, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 1.4), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            []</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 2</span>
+<span class="sd">        inner_distance = 1.0</span>
+<span class="sd">        outer_distance = 3.5</span>
+
+<span class="sd">        neighborhood = dijkstra_k_annulus(graph, start_vertex, inner_distance, outer_distance)</span>
+<span class="sd">        print(neighborhood)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        [1, 3]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">inner_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inner_distance</span><span class="p">,</span> <span class="n">Real</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;inner_distance must be an float. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">inner_distance</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">inner_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">inner_distance</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;inner_distance must be a non-negative float.&quot;</span> <span class="sa">f</span><span class="s2">&quot; Got </span><span class="si">{</span><span class="n">inner_distance</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">inner_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">inner_distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inner_distance</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">inner_distance</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">if</span> <span class="n">outer_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">outer_distance</span><span class="p">,</span> <span class="n">Real</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;outer_distance must be an float. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">outer_distance</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">outer_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">outer_distance</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;outer_distance must be a non-negative float.&quot;</span> <span class="sa">f</span><span class="s2">&quot; Got </span><span class="si">{</span><span class="n">outer_distance</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">outer_distance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">outer_distance_dijkstra</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">outer_distance</span><span class="p">)</span>
+        <span class="n">outer_distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">outer_distance</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">outer_distance_dijkstra</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">outer_distance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">inner_distance</span> <span class="o">&gt;</span> <span class="n">outer_distance</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">distance_dict</span> <span class="o">=</span> <span class="n">dijkstra</span><span class="p">(</span>
+        <span class="n">graph</span><span class="p">,</span>
+        <span class="n">start</span><span class="p">,</span>
+        <span class="n">max_distance</span><span class="o">=</span><span class="n">outer_distance_dijkstra</span><span class="p">,</span>
+        <span class="n">weight_key</span><span class="o">=</span><span class="n">weight_key</span><span class="p">,</span>
+        <span class="n">_skip_check</span><span class="o">=</span><span class="n">_skip_check</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="n">v</span> <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">distance_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">inner_distance</span> <span class="o">&lt;=</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="n">outer_distance</span>
+    <span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="dijkstra_k_disk">
+<a class="viewcode-back" href="../../docs/_generated/pygraphs.dijkstra_k_disk.html#pygraphs.dijkstra_k_disk">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dijkstra_k_disk</span><span class="p">(</span>
+    <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span>
+    <span class="n">start</span><span class="p">:</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="n">distance</span><span class="p">:</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">weight_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">self_neighborhood</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">_skip_check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return all vertices with distance lower than :math:`k`</span>
+<span class="sd">    (ie :math:`\{v \in V | \text{dist}(i, v) \leq k\}`) where :math:`k` is</span>
+<span class="sd">    the specified distance.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graph : Graph</span>
+<span class="sd">        An instance of the Graph class representing the graph to be traversed.</span>
+
+<span class="sd">    start : Integral</span>
+<span class="sd">        The starting vertex index for the Dijkstra.</span>
+
+<span class="sd">    distance : Integral</span>
+<span class="sd">        The adjacency radius :math:`k` for the neighborhood of the starting vertex,</span>
+<span class="sd">        where the neighborhood includes all vertices that are within this distance from the vertex.</span>
+
+<span class="sd">    weight_key: str (default: ``&#39;weight&#39;``)</span>
+<span class="sd">        The key-name of the weight to use in the graph dictionnary structure.</span>
+<span class="sd">        If an edge does not have weight, default weight is ``1.0``.</span>
+
+<span class="sd">    self_neighborhood : bool, optional (default: ``True``)</span>
+<span class="sd">        If True, the neighborhood of the vertex will include the vertex itself</span>
+<span class="sd">        (i.e., the vertex will be considered as part of its own neighborhood).</span>
+<span class="sd">        If False, the neighborhood of the vertex will not include the vertex</span>
+<span class="sd">        itself.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    List[int]</span>
+<span class="sd">        A list of vertex indices representing the vertices in the adjacency disk</span>
+<span class="sd">        of the starting vertex in the graph (i.e., the set of vertices that are within</span>
+<span class="sd">        the specified distance from the starting vertex).</span>
+
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :func:`pygraphs.dijkstra`</span>
+<span class="sd">        Core implementation of Dijkstra.</span>
+
+<span class="sd">    :func:`pygraphs.dijkstra_k_annulus`</span>
+<span class="sd">        Call this function with ``inner_distance = 0`` and ``outer_distance = k`` to extract the</span>
+<span class="sd">        vertices in a adjacency annulus of a starting vertex in the graph.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create a simple disconnected graph of 7 vertices extract the vertices within</span>
+<span class="sd">    distance range.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Disconnected and weighted graph with 7 vertices for Dijkstra example.</span>
+<span class="sd">        Vertices 0, 1, 2 and 3 are the only vertices in the neighborhood of vertex</span>
+<span class="sd">        0 for distance = 4.0.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_disk, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(0, 0.2), (1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 3.2), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            [(5, 2.3)]</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 0</span>
+<span class="sd">        distance = 4.0</span>
+
+<span class="sd">        neighborhood = dijkstra_k_disk(graph, start_vertex, distance)</span>
+<span class="sd">        print(neighborhood)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        [0, 1, 2, 3]</span>
+
+<span class="sd">    This method can be applied for **directed** graphs as well,</span>
+<span class="sd">    where the adjacency list represents the outgoing neighbors of each vertex.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph_directed.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Directed graph with 7 vertices for Dijkstra example. Vertices 0, 1 and 3 are the only</span>
+<span class="sd">        vertices in the neighborhood of vertex 2 for distance = 3.5.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_disk, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 1.4), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            []</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 2</span>
+<span class="sd">        distance = 3.5</span>
+
+<span class="sd">        neighborhood = dijkstra_k_disk(graph, start_vertex, distance)</span>
+<span class="sd">        print(neighborhood)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        [0, 1, 3]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">self_neighborhood</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;self_neighborhood must be a boolean. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">self_neighborhood</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">self_neighborhood</span><span class="p">:</span>
+        <span class="n">inner_distance</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">inner_distance</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">dijkstra_k_annulus</span><span class="p">(</span>
+        <span class="n">graph</span><span class="p">,</span>
+        <span class="n">start</span><span class="p">,</span>
+        <span class="n">inner_distance</span><span class="p">,</span>
+        <span class="n">distance</span><span class="p">,</span>
+        <span class="n">weight_key</span><span class="o">=</span><span class="n">weight_key</span><span class="p">,</span>
+        <span class="n">_skip_check</span><span class="o">=</span><span class="n">_skip_check</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="dijkstra_shortest_path">
+<a class="viewcode-back" href="../../docs/_generated/pygraphs.dijkstra_shortest_path.html#pygraphs.dijkstra_shortest_path">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dijkstra_shortest_path</span><span class="p">(</span>
+    <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span>
+    <span class="n">start</span><span class="p">:</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="n">end</span><span class="p">:</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">weight_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">max_distance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Real</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">_skip_check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the shortest path from a starting vertex to an ending vertex.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graph: Graph</span>
+<span class="sd">        An instance of the Graph class representing the graph to be traversed.</span>
+
+<span class="sd">    start: Integral</span>
+<span class="sd">        The starting vertex index for the Dijkstra.</span>
+
+<span class="sd">    end: Integral</span>
+<span class="sd">        The ending vertex index for the Dijkstra.</span>
+
+<span class="sd">    weight_key: str (default: ``&#39;weight&#39;``)</span>
+<span class="sd">        The key-name of the weight to use in the graph dictionnary structure.</span>
+<span class="sd">        If an edge does not have weight, default weight is ``1.0``.</span>
+
+<span class="sd">    max_distance : Optional[Real], optional (default: ``None``)</span>
+<span class="sd">        The maximum distance to search for in the Dijkstra. All vertices</span>
+<span class="sd">        that are not reachable within this distance will be ignored.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    List[int]</span>
+<span class="sd">        A list of vertex indices representing the shortest path from the starting vertex</span>
+<span class="sd">        to the ending vertex in the graph. If there is no path from the starting vertex</span>
+<span class="sd">        to the ending vertex, an empty list is returned.</span>
+
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :func:`pygraphs.dijkstra`</span>
+<span class="sd">        Core implementation of Dijkstra.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create a simple disconnected graph of 7 vertices and compute the shortest path</span>
+<span class="sd">    from a starting vertex (0) to an other vertex.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Disconnected and weighted graph with 7 vertices for Dijkstra example.</span>
+<span class="sd">        Shortest path from vertex 0 to</span>
+<span class="sd">        vertex 4 is (0 -&gt; 2 -&gt; 3 -&gt; 4).</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_disk, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(0, 0.2), (1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 3.2), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            [(5, 2.3)]</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 0</span>
+<span class="sd">        end_vertex = 4</span>
+
+<span class="sd">        shortest_path = dijkstra_shortest_path(graph, start_vertex, end_vertex)</span>
+<span class="sd">        print(shortest_path)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        [0, 2, 3, 4]</span>
+
+<span class="sd">    This method can be applied for **directed** graphs as well,</span>
+<span class="sd">    where the adjacency list represents the outgoing neighbors of each vertex.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph_directed.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Directed graph with 7 vertices for Dijkstra example. Shortest path from vertex 2 to</span>
+<span class="sd">        vertex 0 is (2 -&gt; 1 -&gt; 0).</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_disk, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 1.4), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            []</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 2</span>
+<span class="sd">        end_vertex = 0</span>
+
+<span class="sd">        shortest_path = dijkstra_shortest_path(graph, start_vertex, end_vertex)</span>
+<span class="sd">        print(shortest_path)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        [2, 1, 0]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parent</span><span class="p">,</span> <span class="n">distance_dict</span> <span class="o">=</span> <span class="n">dijkstra</span><span class="p">(</span>
+        <span class="n">graph</span><span class="p">,</span>
+        <span class="n">start</span><span class="p">,</span>
+        <span class="n">max_distance</span><span class="o">=</span><span class="n">max_distance</span><span class="p">,</span>
+        <span class="c1"># stop_encounter=end, TODO: Optimizable ?</span>
+        <span class="n">weight_key</span><span class="o">=</span><span class="n">weight_key</span><span class="p">,</span>
+        <span class="n">_skip_check</span><span class="o">=</span><span class="n">_skip_check</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">end</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">distance_dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="c1"># -- Reconstruct path from end to start using parent dictionary --</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">current_vertex</span> <span class="o">=</span> <span class="n">end</span>
+    <span class="k">while</span> <span class="n">current_vertex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_vertex</span><span class="p">)</span>
+        <span class="n">current_vertex</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="n">current_vertex</span><span class="p">]</span>
+    <span class="n">path</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">path</span></div>
+
+
+
+<div class="viewcode-block" id="dijkstra_shortest_distance">
+<a class="viewcode-back" href="../../docs/_generated/pygraphs.dijkstra_shortest_distance.html#pygraphs.dijkstra_shortest_distance">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dijkstra_shortest_distance</span><span class="p">(</span>
+    <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span>
+    <span class="n">start</span><span class="p">:</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="n">end</span><span class="p">:</span> <span class="n">Integral</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">weight_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">max_distance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Real</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">_skip_check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the shortest distance from a starting</span>
+<span class="sd">    vertex to an ending vertex.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graph: Graph</span>
+<span class="sd">        An instance of the Graph class representing the graph to be traversed.</span>
+
+<span class="sd">    start: Integral</span>
+<span class="sd">        The starting vertex index for the Dijkstra.</span>
+
+<span class="sd">    end: Integral</span>
+<span class="sd">        The ending vertex index for the Dijkstra.</span>
+
+<span class="sd">    weight_key: str (default: ``&#39;weight&#39;``)</span>
+<span class="sd">        The key-name of the weight to use in the graph dictionnary structure.</span>
+<span class="sd">        If an edge does not have weight, default weight is ``1.0``.</span>
+
+<span class="sd">    max_distance : Optional[Real], optional (default: ``None``)</span>
+<span class="sd">        The maximum distance to search for in the Dijkstra. All vertices</span>
+<span class="sd">        that are not reachable within this distance will be ignored.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The distance from starting vertex to ending vertex. Or ``-1.0`` if not reachable.</span>
+
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :func:`pygraphs.dijkstra`</span>
+<span class="sd">        Core implementation of Dijkstra.</span>
+
+<span class="sd">    :func:`pygraphs.dijkstra_distances`</span>
+<span class="sd">        Compute the shortest path distances</span>
+<span class="sd">        from a starting vertex to all other vertices in the graph.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create a simple disconnected graph of 7 vertices and compute the shortest distance</span>
+<span class="sd">    from a starting vertex (0) to an other vertex.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Disconnected and weighted graph with 7 vertices for Dijkstra example.</span>
+<span class="sd">        Shortest path from vertex 0 to</span>
+<span class="sd">        vertex 4 is (0 -&gt; 2 -&gt; 3 -&gt; 4) with distance 4.8.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_disk, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(0, 0.2), (1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 3.2), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            [(5, 2.3)]</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 0</span>
+<span class="sd">        end_vertex = 4</span>
+
+<span class="sd">        shortest_dist = dijkstra_shortest_distance(graph, start_vertex, end_vertex)</span>
+<span class="sd">        print(shortest_dist)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        4.8</span>
+
+<span class="sd">    This method can be applied for **directed** graphs as well,</span>
+<span class="sd">    where the adjacency list represents the outgoing neighbors of each vertex.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph_directed.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Directed graph with 7 vertices for Dijkstra example. Shortest path from vertex 2 to</span>
+<span class="sd">        vertex 0 is (2 -&gt; 1 -&gt; 0) with distance 2.7.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_disk, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 1.4), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            []</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+<span class="sd">        start_vertex = 2</span>
+<span class="sd">        end_vertex = 0</span>
+
+<span class="sd">        shortest_dist = dijkstra_shortest_distance(graph, start_vertex, end_vertex)</span>
+<span class="sd">        print(shortest_dist)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        2.7</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">distance_dict</span> <span class="o">=</span> <span class="n">dijkstra</span><span class="p">(</span>
+        <span class="n">graph</span><span class="p">,</span>
+        <span class="n">start</span><span class="p">,</span>
+        <span class="n">max_distance</span><span class="o">=</span><span class="n">max_distance</span><span class="p">,</span>
+        <span class="c1"># stop_encounter=end, TODO: Optimizable ?</span>
+        <span class="n">weight_key</span><span class="o">=</span><span class="n">weight_key</span><span class="p">,</span>
+        <span class="n">_skip_check</span><span class="o">=</span><span class="n">_skip_check</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">distance_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="dijkstra_matrix">
+<a class="viewcode-back" href="../../docs/_generated/pygraphs.dijkstra_matrix.html#pygraphs.dijkstra_matrix">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dijkstra_matrix</span><span class="p">(</span>
+    <span class="n">graph</span><span class="p">:</span> <span class="n">Graph</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">weight_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">max_distance</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Integral</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">_skip_check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the shortest path distance matrix for **all** pairs of vertices.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    graph: Graph</span>
+<span class="sd">        An instance of the Graph class representing the graph to be traversed.</span>
+
+<span class="sd">    max_distance : Optional[Integral], optional (default: ``None``)</span>
+<span class="sd">        The maximum distance to search for in the Dijkstra. All vertices</span>
+<span class="sd">        that are not reachable within this distance will be ignored.</span>
+
+<span class="sd">    weight_key: str (default: ``&#39;weight&#39;``)</span>
+<span class="sd">        The key-name of the weight to use in the graph dictionnary structure.</span>
+<span class="sd">        If an edge does not have weight, default weight is ``1.0``.</span>
+
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    List[List[float]]</span>
+<span class="sd">        A 2D list representing the shortest path distance matrix, where the element</span>
+<span class="sd">        at position (i, j) represents the shortest path distance from vertex i to</span>
+<span class="sd">        vertex j. If a vertex is not reachable within the specified maximum distance,</span>
+<span class="sd">        the distance will be ``-1.0``.</span>
+
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The function uses a Dijkstra approach to compute the shortest path distances, which</span>
+<span class="sd">    is efficient for unweighted graphs.</span>
+<span class="sd">    The time complexity is :math:`O(V(V + E))`, where :math:`V`</span>
+<span class="sd">    is the number of vertices and :math:`E` is the number of edges in the graph.</span>
+<span class="sd">    For a undirected graph, the distance matrix is symmetric, meaning that the distance from vertex</span>
+<span class="sd">    :math:`A` to vertex :math:`B` is the same as the distance from vertex :math:`B` to vertex</span>
+<span class="sd">    :math:`A` (i.e., :math:`\text{dist}(A, B) = \text{dist}(B, A)`), since the edges can be traversed</span>
+<span class="sd">    in both directions. For a directed graph, the distance matrix is not necessarily symmetric, since the</span>
+<span class="sd">    edges can only be traversed in one direction (i.e., :math:`\text{dist}(A, B)` may not be equal to</span>
+<span class="sd">    :math:`\text{dist}(B, A)`).</span>
+
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :func:`pygraphs.dijkstra`</span>
+<span class="sd">        Core implementation of Dijkstra.</span>
+
+<span class="sd">    :func:`pygraphs.dijkstra_distances`</span>
+<span class="sd">        Perform a breadth-first search (Dijkstra) to compute the shortest path distances</span>
+<span class="sd">        from a starting vertex to all other vertices in the graph, where the distance</span>
+<span class="sd">        is defined as the number of edges in the shortest path between the vertices.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create a simple disconnected graph of 7 vertices and compute the shortest path</span>
+<span class="sd">    distance matrix for all pairs of vertices in the graph.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Disconnected and weighted graph with 7 vertices for Dijkstra example. Distance from vertex 0 to</span>
+<span class="sd">        vertex 4 is 4.8 (0 -&gt; 2 -&gt; 3 -&gt; 4). Thus ``dist[0, 4] = 4.8`` and ``dist[4, 0] = 4.8``</span>
+<span class="sd">        for this undirected graph.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_disk, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(0, 0.2), (1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 3.2), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            [(5, 2.3)]</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+
+<span class="sd">        adjacency_matrix = bfs_matrix(graph)</span>
+<span class="sd">        print(f&quot;adjacency_matrix (shape={len(adjacency_matrix)}x{len(adjacency_matrix[0])}):&quot;)</span>
+<span class="sd">        print(adjacency_matrix)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        adjacency_matrix (shape=(7x7)):</span>
+<span class="sd">        [[ 0.0  1.2  0.2  3.4  4.8 -1.0 -1.0]</span>
+<span class="sd">         [ 1.2  0.0  1.4  4.6  6.0 -1.0 -1.0]</span>
+<span class="sd">         [ 0.2  1.4  0.0  3.2  4.6 -1.0 -1.0]</span>
+<span class="sd">         [ 3.4  4.6  3.2  0.0  1.4 -1.0 -1.0]</span>
+<span class="sd">         [ 4.8  6.0  4.6  1.4  0.0 -1.0 -1.0]</span>
+<span class="sd">         [-1.0 -1.0 -1.0 -1.0 -1.0  0.0  2.3]</span>
+<span class="sd">         [-1.0 -1.0 -1.0 -1.0 -1.0  2.3  0.0]]</span>
+
+
+<span class="sd">    This method can be applied for **directed** graphs as well,</span>
+<span class="sd">    where the adjacency list represents the outgoing neighbors of each vertex.</span>
+
+<span class="sd">    .. figure:: /_static/weighted_graph_directed.png</span>
+<span class="sd">        :align: center</span>
+<span class="sd">        :width: 50%</span>
+
+<span class="sd">        Directed graph with 7 vertices for Dijkstra example. Shortest path from vertex 2 to</span>
+<span class="sd">        vertex 0 is (2 -&gt; 1 -&gt; 0) with distance 2.7.</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">        :linenos:</span>
+
+<span class="sd">        from pygraphs import dijkstra_k_disk, Graph</span>
+
+<span class="sd">        graph = [</span>
+<span class="sd">            [(1, 1.2), (2, 0.2)],</span>
+<span class="sd">            [(0, 1.2), (2, 1.5)],</span>
+<span class="sd">            [(1, 1.5), (3, 3.2)],</span>
+<span class="sd">            [(2, 1.4), (4, 1.4)],</span>
+<span class="sd">            [(3, 1.4)],</span>
+<span class="sd">            [(6, 2.3)],</span>
+<span class="sd">            []</span>
+<span class="sd">        ]</span>
+<span class="sd">        graph = Graph.from_adjacency(graph)</span>
+
+<span class="sd">        adjacency_matrix = bfs_matrix(graph)</span>
+<span class="sd">        print(f&quot;adjacency_matrix (shape={len(adjacency_matrix)}x{len(adjacency_matrix[0])}):&quot;)</span>
+<span class="sd">        print(adjacency_matrix)</span>
+
+<span class="sd">    .. code-block:: console</span>
+
+<span class="sd">        adjacency_matrix (shape=(7x7)):</span>
+<span class="sd">        [[ 0.0  1.2  0.2  3.4  4.8 -1.0 -1.0]</span>
+<span class="sd">         [ 1.2  0.0  1.4  4.6  6.0 -1.0 -1.0]</span>
+<span class="sd">         [ 0.2  1.4  0.0  3.2  4.6 -1.0 -1.0]</span>
+<span class="sd">         [ 1.6  2.8  1.4  0.0  1.4 -1.0 -1.0]</span>
+<span class="sd">         [ 3.0  4.2  2.8  1.4  0.0 -1.0 -1.0]</span>
+<span class="sd">         [-1.0 -1.0 -1.0 -1.0 -1.0  0.0  2.3]</span>
+<span class="sd">         [-1.0 -1.0 -1.0 -1.0 -1.0 -1.0  0.0]]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">Graph</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;graph must be an instance of Graph. Got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="n">n_vertices</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">n_vertices</span>
+
+    <span class="n">distance_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_vertices</span><span class="p">):</span>
+        <span class="n">distances</span> <span class="o">=</span> <span class="n">dijkstra_distances</span><span class="p">(</span>
+            <span class="n">graph</span><span class="p">,</span>
+            <span class="n">i</span><span class="p">,</span>
+            <span class="n">max_distance</span><span class="o">=</span><span class="n">max_distance</span><span class="p">,</span>
+            <span class="n">weight_key</span><span class="o">=</span><span class="n">weight_key</span><span class="p">,</span>
+            <span class="n">_skip_check</span><span class="o">=</span><span class="n">_skip_check</span> <span class="ow">or</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">distance_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">distances</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">distance_matrix</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026-2026, Artezaru.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.19.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
